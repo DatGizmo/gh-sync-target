@@ -11,7 +11,6 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Push to public target
         run: |
-          git remote add fork git@github.com:DatGizmo/gh-sync-target.git
-          git push fork ${{ github.ref_name }}
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/DatGizmo/gh-sync-target.git ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.TEST_TOKEN }}
