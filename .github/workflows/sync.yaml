@@ -9,8 +9,9 @@ jobs:
     steps:
       - name: Checkout current tag
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        ref: main
-        fetch-tags: true
+        with:
+          ref: main
+          fetch-tags: true
       - name: Push to public target
         shell: bash
         run: |
