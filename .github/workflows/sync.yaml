@@ -18,7 +18,6 @@ jobs:
           # Unset https header which contains the 'default' token for the executing repo
           git config --local --unset-all "http.https://github.com/.extraheader"
           git remote add fork https://datgizmo:${GITHUB_TOKEN}@github.com/DatGizmo/gh-sync-target
-          git fetch fork main
           git push --force fork main
           git push fork ${{ github.ref_name }}
         env:
