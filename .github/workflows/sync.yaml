@@ -9,12 +9,10 @@ jobs:
     steps:
       - name: Checkout current tag
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - name: Push to public target
-        shell: bash
-        run: |
-          printenv
-          git remote add fork https://datgizmo:${GITHUB_TOKEN}@github.com/datgizmo/gh-sync-target
-          git push -v fork HEAD
-          git push -v fork ${{ github.ref_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.TEST_TOKEN }}
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TEST_TOKEN }}
+          repository: datgizmo/gh-sync-target
+          force: true
+          tags: true
