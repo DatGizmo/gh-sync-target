@@ -12,6 +12,7 @@ jobs:
       - name: Push to public target
         shell: bash
         run: |
+          git config --local --unset-all "http.https://github.com/.extraheader"
           git config -l
           git remote add fork https://datgizmo:${GITHUB_TOKEN}@github.com/datgizmo/gh-sync-target
           git push -v fork HEAD
