@@ -13,8 +13,8 @@ jobs:
         shell: bash
         run: |
           printenv
-          git remote add fork https://datgizmo:${TOKEN}@github.com/datgizmo/gh-sync-target
+          git remote add fork https://datgizmo:${GITHUB_TOKEN}@github.com/datgizmo/gh-sync-target
           git push -v fork HEAD
           git push -v fork ${{ github.ref_name }}
         env:
-          TOKEN: ${{ secrets.TEST_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TEST_TOKEN }}
