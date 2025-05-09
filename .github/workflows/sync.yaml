@@ -16,13 +16,13 @@ jobs:
         shell: bash
         run: |
           # Unset https header which contains the 'default' token for the executing repo
+          git fetch --unshallow origin
           git config --local --unset-all "http.https://github.com/.extraheader"
           git config --global user.email "pylon@nordicsemi.no"
           git config --global user.name "Nordic Builder"
           git remote add fork https://datgizmo:${GITHUB_TOKEN}@github.com/DatGizmo/gh-sync-target
           git rm -rf .github
           git commit -m "Strip .github folder"
-          git fetch --unshallow fork
           git push --force fork main
           git push fork ${{ github.ref_name }}
         env:
