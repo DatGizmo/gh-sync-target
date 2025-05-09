@@ -12,11 +12,11 @@ jobs:
       - name: Push to public target
         shell: bash
         run: |
-          git remote update origin
+          git fetch origin main
           # Unset https header which contains the 'default' token for the executing repo
           git config --local --unset-all "http.https://github.com/.extraheader"
           git remote add fork https://datgizmo:${GITHUB_TOKEN}@github.com/datgizmo/gh-sync-target
-          git remote update fork
+          git fetch fork main
           git push --force -v fork origin/main
           git push -v fork ${{ github.ref_name }}
         env:
