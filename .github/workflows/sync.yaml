@@ -12,11 +12,11 @@ jobs:
         with:
           ref: main
           fetch-tags: true
+          fetch-depth: 0
       - name: Push to public target
         shell: bash
         run: |
           # Unset https header which contains the 'default' token for the executing repo
-          git fetch --unshallow origin
           git config --local --unset-all "http.https://github.com/.extraheader"
           git config --global user.email "pylon@nordicsemi.no"
           git config --global user.name "Nordic Builder"
