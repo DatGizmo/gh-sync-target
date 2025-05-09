@@ -12,5 +12,6 @@ jobs:
       - name: Push to public target
         run: |
           git remote add fork https://datgizmo:${{ secrets.TEST_TOKEN }}@github.com/DatGizmo/gh-sync-target.git
+          git remote update fork
           git push -v fork HEAD
           git push -v fork ${{ github.ref_name }}
