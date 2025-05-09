@@ -13,7 +13,7 @@ jobs:
         run: |
           git remote add fork https://datgizmo:${TOKEN}@github.com/datgizmo/gh-sync-target
           git remote --verbose
-          git remote update fork
+          git remote update -v fork
           git push -v fork HEAD
           git push -v fork ${{ github.ref_name }}
         env:
