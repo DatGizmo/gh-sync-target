@@ -22,7 +22,7 @@ jobs:
           git remote add fork https://datgizmo:${GITHUB_TOKEN}@github.com/DatGizmo/gh-sync-target
           git rm -rf .github
           git commit -m "Strip .github folder"
-          git remote update fork
+          git fetch --unshallow fork
           git push --force fork main
           git push fork ${{ github.ref_name }}
         env:
