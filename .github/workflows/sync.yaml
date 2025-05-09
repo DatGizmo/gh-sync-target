@@ -12,5 +12,5 @@ jobs:
       - name: Push to public target
         run: |
           git show
-          git push https://${secrets.TEST_TOKEN}@github.com/DatGizmo/gh-sync-target.git HEAD
-          git push https://${secrets.TEST_TOKEN}@github.com/DatGizmo/gh-sync-target.git ${{ github.ref_name }}
+          git push https://${{ secrets.TEST_TOKEN }}@github.com/DatGizmo/gh-sync-target.git HEAD
+          git push https://${{ secrets.TEST_TOKEN }}@github.com/DatGizmo/gh-sync-target.git ${{ github.ref_name }}
